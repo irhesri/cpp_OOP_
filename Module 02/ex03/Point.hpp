@@ -13,8 +13,9 @@ class Point
 		Point(float const px, float const py);
 		Point(Point const &p);
 		~Point();
-		float	getX();
-		float	getY();
+		Point	&operator= (Point const &point);
+		Fixed	getX();
+		Fixed	getY();
 };
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);

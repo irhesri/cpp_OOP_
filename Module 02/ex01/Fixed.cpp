@@ -56,9 +56,8 @@ int Fixed::toInt(void) const
 	return (raw / (1 << frct));
 };
 
-
 std::ostream	&operator<< (std::ostream &out, Fixed const &point)
 {
-	out << ((float)point.getRawBits() / (1 << 8));
+	out << point.toFloat();
 	return (out);
 }

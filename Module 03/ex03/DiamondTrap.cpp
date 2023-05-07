@@ -20,6 +20,10 @@ DiamondTrap::DiamondTrap(std::string name):ScavTrap(name) , FragTrap(name)
 	hit = FragTrap::hit;
 	energy = ScavTrap::energy;
 	damage = FragTrap::damage;
+
+	std::cout << energy << std::endl;
+	std::cout << damage << std::endl;
+	
 	std::cout << "DiamondTrap " << name << " Constructor been called." << std::endl;
 }
 

@@ -7,10 +7,10 @@ bool	is_triangle(Point a, Point b, Point c)
 
 int	main( void ) 
 {
-	Point	A(0, 4);
-	Point	B(1, 1);
-	Point	C(3, 3);
-	Point	P(3, 4);
+	Point	A(0.1, 0);
+	Point	B(0, 2);
+	Point	C(2.9, 0);
+	Point	P(0.5, 0.5);
 
 	if (!is_triangle(A, B, C))
 	{

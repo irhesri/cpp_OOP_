@@ -11,7 +11,7 @@ int	main( void ) {
 	std::cout << b << std::endl;
 	
 	// std::cout << std::endl;
-	// std::cout << "max: " << Fixed::max( a, b ) << std::endl;
+	std::cout << "max: " << Fixed::max( a, b ) << std::endl;
 	// std::cout << "min: " << Fixed::min( a, b ) << std::endl;
 	// std::cout << std::endl;
 	// std::cout << "* : " << (a * b) << std::endl;

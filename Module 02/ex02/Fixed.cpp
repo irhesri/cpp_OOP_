@@ -63,16 +63,17 @@ Fixed	Fixed::operator- (Fixed const &point)
 
 Fixed	Fixed::operator* (Fixed const &point)
 {
-	Fixed	res(this->toFloat() * point.toFloat());
+	Fixed	res;	
 
+	res.setRawBits(((long)raw * (long)point.getRawBits()) / (long)(1 << frct));
 	return (res);
 }
 
-
 Fixed	Fixed::operator/ (Fixed const &point)
 {
-	Fixed	res(this->toFloat() / point.toFloat());
+	Fixed	res;	
 
+	res.setRawBits(((long)raw / (long)point.getRawBits()) * (long)(1 << frct));
 	return (res);
 }
 
@@ -166,11 +167,11 @@ Fixed	&Fixed::min(Fixed &p1, Fixed &p2)
 	return (p2);
 };
 
-Fixed	&Fixed::min(Fixed const &p1, Fixed const &p2)
+Fixed const	&Fixed::min(Fixed const &p1, Fixed const &p2)
 {
 	if (p1.getRawBits() < p2.getRawBits())
-		return (const_cast<Fixed&>(p1));
-	return (const_cast<Fixed&>(p2));
+		return (p1);
+	return (p2);
 };
 
 Fixed	&Fixed::max(Fixed &p1, Fixed &p2)
@@ -180,9 +181,9 @@ Fixed	&Fixed::max(Fixed &p1, Fixed &p2)
 	return (p2);
 };
 
-Fixed	&Fixed::max(Fixed const &p1, Fixed const &p2)
+Fixed const	&Fixed::max(Fixed const &p1, Fixed const &p2)
 {
 	if (p1.getRawBits() > p2.getRawBits())
-		return (const_cast<Fixed&>(p1));
-	return (const_cast<Fixed&>(p2));
+		return (p1);
+	return (p2);
 };

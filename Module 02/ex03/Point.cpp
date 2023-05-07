@@ -6,14 +6,21 @@ Point::Point(float const px, float const py): x(px), y(py){}
 
 Point::Point(Point const &p): x(p.x), y(p.y){}
 
-float	Point::getX()
+Point	&Point::operator= (Point const &point)
 {
-	return (x.toFloat());
+	(void) point;
+	std::cerr << " -> Attributes are const you can't change them!!!!" << std::endl << " -> Don't act surprised!" << std::endl << std::endl;
+	return (*this);
 }
 
-float	Point::getY()
+Fixed	Point::getX()
 {
-	return (y.toFloat());
+	return (x);
+}
+
+Fixed	Point::getY()
+{
+	return (y);
 }
 
 Point::~Point()

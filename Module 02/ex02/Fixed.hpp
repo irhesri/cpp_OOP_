@@ -36,10 +36,10 @@ class Fixed
 
 		int		toInt(void) const;
 		float	toFloat(void) const;
-		static	Fixed	&min(Fixed &p1, Fixed &p2);
-		static	Fixed	&min(Fixed const &p1, Fixed const &p2);
-		static	Fixed	&max(Fixed &p1, Fixed &p2);
-		static	Fixed	&max(Fixed const &p1, Fixed const &p2);
+		static	Fixed		&min(Fixed &p1, Fixed &p2);
+		static	Fixed const	&min(Fixed const &p1, Fixed const &p2);
+		static	Fixed		&max(Fixed &p1, Fixed &p2);
+		static	Fixed const	&max(Fixed const &p1, Fixed const &p2);
 };
 
 std::ostream	&operator<< (std::ostream &out, Fixed const &point);

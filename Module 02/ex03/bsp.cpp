@@ -2,9 +2,11 @@
 
 float	area(Point x, Point y, Point z, bool *b)
 {
-	float	a = (fabs(x.getX() * (y.getY() - z.getY())
+	Fixed	tmp = x.getX() * (y.getY() - z.getY())
 			+ y.getX() * (z.getY() - x.getY())
-			+ z.getX() * (x.getY() - y.getY())) / 2);
+			+ z.getX() * (x.getY() - y.getY());
+	
+	float	a = fabs((tmp.toFloat()) / 2);
 	(*b) |= (a == 0);
 	return (a);
 }
