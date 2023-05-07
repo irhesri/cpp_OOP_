@@ -10,6 +10,7 @@ int	main()
 	const WrongAnimal* wronganimal = new WrongAnimal();
 	const WrongAnimal* wrongcat = new WrongCat();
 
+	std::cout << std::endl;
 	std::cout << dog->getType() << " " << std::endl;
 	dog->makeSound();
 	
@@ -24,8 +25,9 @@ int	main()
 
 	std::cout << wrongcat->getType() << " " << std::endl;
 	wrongcat->makeSound();
+	std::cout << std::endl;
 
-	delete animal, cat, dog;
+	delete animal;
 	delete cat;
 	delete dog;
 	delete wronganimal;

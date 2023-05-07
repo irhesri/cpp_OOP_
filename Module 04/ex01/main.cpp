@@ -6,18 +6,22 @@
 
 int	main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	int				i;
+	const Animal*	arr[4];
 
-	const Cat *k = new Cat();
-	const Cat *h = new Cat(*k);
-	Cat c, c2;
-	const Dog d;
+	std::cout << std::endl;
+	for (i = 0; i < 2; i++)
+		arr[i] = new Dog();
+	for (; i < 4; i++)
+		arr[i] = new Cat();
+	std::cout << std::endl;
+	std::cout << std::endl;
 
-	c = c2;
-	delete h;
-	delete k;
-	delete j;//should not create a leak
-	delete i;
+	for (i = 0; i < 2; i++)
+		delete (arr[i]);
+	std::cout << std::endl;
+	for (; i < 4; i++)
+		delete (arr[i]);
+	
 	return 0;
 }
