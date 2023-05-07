@@ -11,7 +11,7 @@ int	main(){
 	std::cout << std::endl << "--------------------------" << std::endl; 
 	def.highFivesGuys();
 	param.highFivesGuys();
-	param.attack("someone");
+	copy.attack("someone");
 	tst1.attack("another one");
 	assign.highFivesGuys();
 	param.attack("two guys");
