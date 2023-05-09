@@ -1,15 +1,14 @@
-# include "Cat.hpp"
-# include "Dog.hpp"
-# include "WrongCat.hpp"
-# include "Brain.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongCat.hpp"
+#include "Brain.hpp"
 
-
-int	main()
+int main()
 {
-	// const Animal* j = new Animal();
-	const Cat* i = new Cat();
+	// Animal A;
+	Dog D;
+	Cat C;
+	Brain B;
 
-	// delete j;
-	delete i;
 	return 0;
 }

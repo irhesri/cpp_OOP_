@@ -9,8 +9,8 @@ Cat::Cat()
 
 Cat::Cat(Cat const &cat)
 {
-	this->type = cat.getType();
-	brain = cat.getBrain();
+	brain = new Brain();
+	(*this) = cat;
 	std::cout << "Copy constructor of Cat been called." << std::endl;
 }
 
@@ -22,9 +22,9 @@ Cat::~Cat()
 
 Cat	&Cat::operator=(Cat const &cat)
 {
-	delete brain;
 	this->type = cat.getType();
-	brain = cat.getBrain();
+	for (short i = 0; i < 100; i++)
+		brain->setIdea(cat.getBrainIdea(i), i);
 	// std::cout << "Cat copy assignement been called." << std::endl;
 	return (*this);
 }
@@ -34,8 +34,7 @@ void	Cat::makeSound() const
 	std::cout << "meow meow meow!" << std::endl;
 }
 
-Brain	*Cat::getBrain() const
+std::string	Cat::getBrainIdea(short index) const
 {
-	Brain	*b = new Brain(*brain);
-	return (b);
+	return (brain->getIdea(index));
 }

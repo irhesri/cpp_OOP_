@@ -29,7 +29,7 @@ std::string	Animal::getType() const
 	return (type);
 }
 
-void	Animal::makeSound() const
-{
-	std::cout << "cats don’t bark" << std::endl;
-}
+// void	Animal::makeSound() const
+// {
+// 	std::cout << "cats don’t bark" << std::endl;
+// }

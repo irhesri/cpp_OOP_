@@ -12,8 +12,8 @@ class Dog: public Animal
 		Dog(Dog const &dog);
 		~Dog();
 		Dog	&operator=(Dog const &dog);
-		void	makeSound() const;
-		Brain	*getBrain() const;
+		void		makeSound() const;
+		std::string	getBrainIdea(short index) const;
 };
 
 #endif
