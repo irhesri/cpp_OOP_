@@ -13,7 +13,7 @@ class Cat: public Animal
 		~Cat();
 		Cat	&operator=(Cat const &cat);
 		void	makeSound() const;
-		Brain	*getBrain() const;
+		std::string	getBrainIdea(short index) const;
 };
 
 #endif
