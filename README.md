@@ -11,7 +11,7 @@ Classes, memory allocation, pointers to members, references, switch statement
 Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
 <br/><br/>
 ## Module 03
-Inheritance
+Inheritance, Inheretence Diamond problem
 <br/><br/>
 ## Module 04
 Subtype polymorphism, abstract classes, interfaces
