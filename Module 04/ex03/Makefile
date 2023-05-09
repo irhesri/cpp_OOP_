@@ -1,8 +1,8 @@
 NAME		= $(shell pwd | sed 's!.*/!!')
 CC			= c++
-CFLAGS		= -g -fsanitize=address #-Wall -Wextra -Werror
+CFLAGS		= -g -fsanitize=address -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
-FILES		= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+FILES		= main.cpp Cure.cpp Ice.cpp AMateria.cpp Character.cpp LinkedList.cpp MateriaSource.cpp
 
 OBJ = $(FILES:.cpp=.o)
 

@@ -1,35 +1,12 @@
-#ifndef MS
-# define MS
+#pragma once
 
 # include "IMateriaSource.hpp"
-# include "Ice.hpp"
-# include "Cure.hpp"
 
 class MateriaSource: public IMateriaSource
 {
+	LinkedList	memory;
 	public:
-		~MateriaSource() {}
+		// ~MateriaSource() {};
 		void learnMateria(AMateria*);
 		AMateria* createMateria(std::string const &type);
 };
-
-MateriaSource::~MateriaSource() 
-{
-
-}
-
-void MateriaSource::learnMateria(AMateria *materia)
-{
-
-}
-
-AMateria* MateriaSource::createMateria(std::string const &type)
-{
-	if (type == "ice")
-		return (new Ice);
-	else if (type == "cure")
-		return (new Cure);
-	return (NULL);
-}
-
-#endif

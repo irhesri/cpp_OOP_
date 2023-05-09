@@ -1,27 +1,20 @@
-#ifndef A
-# define A
+#pragma once
 
 # include <iostream>
+# include "Character.hpp"
 
 class AMateria
 {
 	protected:
-		std::string const &type;
+		std::string	type;
 	public:
+		AMateria();
+		virtual ~AMateria();
 		AMateria(std::string const &type);
-		// [...]
+		AMateria(AMateria const &materia);
+		virtual AMateria	&operator=(AMateria const &materia);
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
 };
 
-AMateria::AMateria(std::string const &type):type(type)
-{
-};
-
-std::string const &AMateria::getType() const
-{
-	return (type);
-};
-
-#endif

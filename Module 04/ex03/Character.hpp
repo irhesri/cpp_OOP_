@@ -1,49 +1,25 @@
-#ifndef CHAR
-# define CHAR
+#pragma once
 
 # include "ICharacter.hpp"
+# include "LinkedList.hpp"
 
 class Character: public ICharacter
 {
 		std::string	name;
-		AMateria	*slots[4];
+		LinkedList	slots;
+		LinkedList	trashCan;
 	public:
+		Character();
 		Character(std::string const &name);
-		// deep copy
-		// =
+		Character(Character const &list);
 		~Character();
+		Character	&operator=(Character const &list);
+
 		std::string const & getName() const;
+		LinkedList	getSlots() const;
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
 };
 
-Character::Character(std::string const &name) 
-{
-	this->name = name;
-}
-
-Character::~Character() {}
-
-std::string const &Character::getName() const
-{
-	return (name);
-}
-
-void Character::equip(AMateria* m)
-{
-
-}
-
-void Character::unequip(int idx)
-{
-
-}
-
-void Character::use(int idx, ICharacter& target)
-{
-	slots[idx]->use(target);
-}
-
-
-#endif
+// # include "AMateria.hpp"

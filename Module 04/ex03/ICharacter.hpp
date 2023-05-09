@@ -1,7 +1,8 @@
-#ifndef ICHAR
-# define ICHAR
+#pragma once
 
-# include "AMateria.hpp"
+#include <iostream>
+
+class AMateria;
 
 class ICharacter
 {
@@ -13,4 +14,4 @@ class ICharacter
 		virtual void use(int idx, ICharacter& target) = 0;
 };
 
-#endif
+# include "AMateria.hpp"

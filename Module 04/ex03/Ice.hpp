@@ -1,5 +1,4 @@
-#ifndef ICE
-# define ICE
+#pragma once
 
 # include "AMateria.hpp"
 
@@ -12,20 +11,3 @@ class Ice: public AMateria
 		AMateria* clone() const;
 		void use(ICharacter& target);
 };
-
-Ice::Ice():AMateria("Ice"){}
-
-Ice::Ice(std::string const &type):AMateria(type){}
-
-AMateria* Ice::clone() const
-{
-	AMateria *c = new Ice();
-	return (c);
-};
-
-void	Ice::use(ICharacter& target)
-{
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-};
-
-#endif
