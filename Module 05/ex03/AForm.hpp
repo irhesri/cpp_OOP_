@@ -22,15 +22,15 @@ class AForm
 		std::string	const	getName() const;
 		class	NotSignedException{
 			public:
-				char	*what();
+				const char * what () const throw();
 		};
 		class	GradeTooHighException{
 			public:
-				char	*what();
+				const char * what () const throw();
 		};
 		class	GradeTooLowException{
 			public:
-				char	*what();
+				const char * what () const throw();
 		};
 		void	beSigned(Bureaucrat &b);
 		bool	execute(Bureaucrat const &executor) const;

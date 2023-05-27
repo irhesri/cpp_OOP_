@@ -2,7 +2,7 @@
 
 int	main()
 {
-	Bureaucrat b("bureaucrat", 1);
+	Bureaucrat b("Bureaucrat", 1);
 	{
 		Intern	someRandomIntern;
 		AForm*	form;
@@ -51,7 +51,7 @@ int	main()
 		{
 			b.signForm(*form);
 			b.executeForm(*form);
-			// delete (form);
+			delete (form);
 		}
 	}
 

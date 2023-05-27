@@ -15,6 +15,7 @@ Intern::Intern(Intern const &intern)
 
 Intern	&Intern::operator=(Intern const &intern)
 {
+	(void)intern ;
 	return (*this);
 };
 
@@ -45,7 +46,7 @@ AForm	*Intern::makeForm(std::string form, std::string target)
 	}
 	catch(const std::exception& e)
 	{
-		(void)e;
+		// (void)e;
 		try 
 		{
 			if (form != "robotomy request")
@@ -55,7 +56,7 @@ AForm	*Intern::makeForm(std::string form, std::string target)
 		}
 		catch(const std::exception& e)
 		{
-			(void)e;
+			// (void)e;
 			try
 			{
 				if (form != "shrubbery creation")
@@ -65,10 +66,9 @@ AForm	*Intern::makeForm(std::string form, std::string target)
 			}
 			catch(const std::exception& e)
 			{
-				(void)e;
+				// (void)e;
 				std::cerr << "\033[0;31mForm doesn't exist\033[0m" << '\n';
 			}
-			
 		}
 	}
 	return (NULL);

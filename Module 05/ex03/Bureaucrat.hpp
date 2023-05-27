@@ -23,12 +23,12 @@ class Bureaucrat
 		class GradeTooHighException: public std::exception
 		{
 		    public:
-				char * what ();
+				const char * what () const throw();
 		};
 		class GradeTooLowException: public std::exception
 		{
 		    public:
-				char * what ();
+				const char * what () const throw();
 		};
 		void	signForm(AForm &b);
 		void	executeForm(AForm const & AForm);
