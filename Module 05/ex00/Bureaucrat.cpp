@@ -29,8 +29,7 @@ Bureaucrat::Bureaucrat(std::string name, short grade):name(name)
 }
 
 Bureaucrat::~Bureaucrat()
-{
-}
+{};
 
 Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &b)
 {
@@ -78,14 +77,14 @@ void	Bureaucrat::decrementGrade()
 	}
 };
 
-char	*Bureaucrat::GradeTooHighException::what()
+const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-    return ((char *)("\033[0;31mGrade Too High\033[0m"));
+    return ((const char *)("\033[0;31mGrade Too High\033[0m"));
 }
 
-char	*Bureaucrat::GradeTooLowException::what()
+const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-    return ((char *)("\033[0;31mGrade Too Low\033[0m"));
+    return ((const char *)("\033[0;31mGrade Too Low\033[0m"));
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)

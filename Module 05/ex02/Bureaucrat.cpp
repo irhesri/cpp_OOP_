@@ -78,12 +78,12 @@ void	Bureaucrat::decrementGrade()
 	}
 };
 
-char	*Bureaucrat::GradeTooHighException::what()
+const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
     return ((char *)("\033[0;31mGrade Too High\033[0m"));
 }
 
-char	*Bureaucrat::GradeTooLowException::what()
+const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ((char *)("\033[0;31mGrade Too Low\033[0m"));
 }

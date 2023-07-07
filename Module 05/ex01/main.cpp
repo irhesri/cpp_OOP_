@@ -13,7 +13,7 @@ int	main()
 	std::cout << c << std::endl;
 	a = c;
 	std::cout << std::endl << "--------------------------------------------" << std::endl;
-	
+
 	Bureaucrat bur1("Bureaucrat1", 50);
 	Bureaucrat bur2("Bureaucrat2", 6);
 

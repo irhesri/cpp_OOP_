@@ -42,14 +42,14 @@ std::string	const	Form::getName() const
 	return (name);
 };
 
-char	*Form::GradeTooHighException::what()
+const char	*Form::GradeTooHighException::what() const throw()
 {
-    return ((char *)("\033[0;31mGrade Too High\033[0m"));
+    return ((const char *)("\033[0;31mGrade Too High\033[0m"));
 }
 
-char	*Form::GradeTooLowException::what()
+const char	*Form::GradeTooLowException::what() const throw()
 {
-    return ((char *)("\033[0;31mGrade Too Low\033[0m"));
+    return ((const char *)("\033[0;31mGrade Too Low\033[0m"));
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &f)
@@ -66,15 +66,11 @@ void	Form::beSigned(Bureaucrat &b)
 	try
 	{
 		if (b.getGrade() > gradeToSign)
-		{
 			throw (GradeTooLowException());	
-		}
 		isSigned = 1;
 	}
 	catch(GradeTooLowException& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
-
 };

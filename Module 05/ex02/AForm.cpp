@@ -42,17 +42,17 @@ std::string	const	AForm::getName() const
 	return (name);
 };
 
-char	*AForm::NotSignedException::what()
+const char	*AForm::NotSignedException::what() const throw()
 {
     return ((char *)("\033[0;31mThe form isn't signed\033[0m"));
 }
 
-char	*AForm::GradeTooHighException::what()
+const char	*AForm::GradeTooHighException::what() const throw()
 {
     return ((char *)("\033[0;31mGrade Too High\033[0m"));
 }
 
-char	*AForm::GradeTooLowException::what()
+const char	*AForm::GradeTooLowException::what() const throw()
 {
     return ((char *)("\033[0;31mGrade Too Low\033[0m"));
 }

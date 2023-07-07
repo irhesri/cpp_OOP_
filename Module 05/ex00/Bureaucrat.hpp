@@ -18,12 +18,12 @@ class Bureaucrat
 		class GradeTooHighException: public std::exception
 		{
 		    public:
-				char * what ();
+				const char * what () const throw();
 		};
 		class GradeTooLowException: public std::exception
 		{
 		    public:
-				char * what ();
+				const char * what () const throw();
 		};
 };
 

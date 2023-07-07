@@ -19,11 +19,11 @@ class Form
 		std::string	const	getName() const;
 		class	GradeTooHighException{
 			public:
-				char	*what();
+				const char	*what() const throw();
 		};
 		class	GradeTooLowException{
 			public:
-				char	*what();
+				const char	*what() const throw();
 		};
 		void	beSigned(Bureaucrat &b);
 };
