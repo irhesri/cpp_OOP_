@@ -3,11 +3,10 @@
 
 # include <iostream>
 
-template <class T>
-class Array 
+template <typename T> class Array 
 {
-		T				*arr;
-		unsigned int	len;
+		T		*arr;
+		size_t	len;
 	public:
 		Array() 
 		{
@@ -18,9 +17,9 @@ class Array
 			this->arr = new T[arr.size()];
 			(*this) = arr;
 		};
-		Array(unsigned int n) 
+		Array(size_t n) 
 		{
-			arr = new T[n];
+			arr = new T[n]();
 			len = n;
 		};
 		~Array()
@@ -28,23 +27,15 @@ class Array
 			if (len)
 				delete[] arr;
 		}
-		T	operator[](unsigned int i) const
+		T	&operator[](size_t i) const
 		{
-			try
-			{
-				if ((unsigned int)i >= len)
-					throw (std::exception());
-				return (arr[(unsigned int)i]);
-			}
-			catch(const std::exception& e)
-			{
-				std::cerr << e.what() << '\n';
-			}
-			return (0);
+			if (i >= len)
+				throw (std::exception());
+			return (arr[i]);
 		}
 		Array	&operator=(Array const &arr) 
 		{
-			unsigned int x = arr.size();
+			size_t x = arr.size();
 			if (len != x)
 			{
 				if (len)
@@ -53,11 +44,11 @@ class Array
 					this->arr = new T[x];
 				len = x;
 			}
-			for (unsigned int i = 0; i < x; i++)
+			for (size_t i = 0; i < x; i++)
 				this->arr[i] = arr[i];
 			return (*this);
 		}
-		unsigned int	size() const
+		size_t	size() const
 		{
 			return (len);
 		}

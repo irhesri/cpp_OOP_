@@ -1,6 +1,6 @@
 NAME		= $(shell pwd | sed 's!.*/!!')
 CC			= c++
-CFLAGS		= -g -fsanitize=address -Wall -Wextra -Werror
+CFLAGS		= -g -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 FILES		= main.cpp
 
