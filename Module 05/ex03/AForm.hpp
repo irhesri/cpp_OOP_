@@ -20,15 +20,18 @@ class AForm
 		short 				getGradeToSign() const;
 		short 				getGradeToExecute() const;
 		std::string	const	getName() const;
-		class	NotSignedException{
+		class	NotSignedException: public std::exception
+		{
 			public:
 				const char * what () const throw();
 		};
-		class	GradeTooHighException{
+		class	GradeTooHighException: public std::exception
+		{
 			public:
 				const char * what () const throw();
 		};
-		class	GradeTooLowException{
+		class	GradeTooLowException: public std::exception
+		{
 			public:
 				const char * what () const throw();
 		};

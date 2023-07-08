@@ -10,22 +10,11 @@ Bureaucrat::Bureaucrat(Bureaucrat const &b):grade(b.getGrade()), name(b.getName(
 
 Bureaucrat::Bureaucrat(std::string name, short grade):name(name)
 {
-	try
-	{
-		if (grade > 150)
-			throw (GradeTooLowException());
-		if (grade < 1)
-			throw (GradeTooHighException());
-		this->grade = grade;
-	}
-	catch(GradeTooLowException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	catch(GradeTooHighException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (grade > 150)
+		throw (GradeTooLowException());
+	if (grade < 1)
+		throw (GradeTooHighException());
+	this->grade = grade;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -52,30 +41,16 @@ std::string const	Bureaucrat::getName() const
 
 void	Bureaucrat::incrementGrade()
 {
-	try
-	{
-		if (grade == 1)
-			throw (GradeTooHighException());
-		grade--;
-	}
-	catch(GradeTooHighException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (grade == 1)
+		throw (GradeTooHighException());
+	grade--;
 };
 
 void	Bureaucrat::decrementGrade()
 {
-	try
-	{
-		if (grade == 150)
-			throw (GradeTooLowException());
-		grade++;
-	}
-	catch(GradeTooLowException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (grade == 150)
+		throw (GradeTooLowException());
+	grade++;
 };
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()

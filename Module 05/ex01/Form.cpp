@@ -5,7 +5,12 @@ Form::Form():isSigned(0), gradeToSign(1), gradeToExecute(1), name("UNKOWN")
 
 Form::Form(bool isSigned, short gradeToSign, short gradeToExecute, std::string name)
 :isSigned(isSigned), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute), name(name)
-{}
+{
+	if (gradeToSign > 150 || gradeToExecute > 150)
+		throw (GradeTooLowException());	
+	if (gradeToSign < 1 || gradeToExecute < 1)
+		throw (GradeTooHighException());	
+}
 
 Form::Form(Form const &f)
 :isSigned(f.getIsSigned()), gradeToSign(f.getGradeToSign()), gradeToExecute(f.getGradeToExecute()), name(f.getName())
@@ -63,14 +68,7 @@ std::ostream &operator<<(std::ostream &out, const Form &f)
 
 void	Form::beSigned(Bureaucrat &b)
 {
-	try
-	{
-		if (b.getGrade() > gradeToSign)
-			throw (GradeTooLowException());	
-		isSigned = 1;
-	}
-	catch(GradeTooLowException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (b.getGrade() > gradeToSign)
+		throw (GradeTooLowException());	
+	isSigned = 1;
 };

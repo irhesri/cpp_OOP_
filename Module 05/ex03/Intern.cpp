@@ -46,7 +46,6 @@ AForm	*Intern::makeForm(std::string form, std::string target)
 	}
 	catch(const std::exception& e)
 	{
-		// (void)e;
 		try 
 		{
 			if (form != "robotomy request")
@@ -56,18 +55,16 @@ AForm	*Intern::makeForm(std::string form, std::string target)
 		}
 		catch(const std::exception& e)
 		{
-			// (void)e;
 			try
 			{
 				if (form != "shrubbery creation")
 					throw (std::exception());
 				std::cout << "Intern creates " << form << std::endl;
-				return (new ShrubberyCreationForm(target));
+				return (new ShrubberyCreationForm(target));	
 			}
 			catch(const std::exception& e)
 			{
-				// (void)e;
-				std::cerr << "\033[0;31mForm doesn't exist\033[0m" << '\n';
+				std::cerr << "\033[0;31mForm doesn't exist\033[0m\n";
 			}
 		}
 	}
