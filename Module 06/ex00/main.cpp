@@ -4,7 +4,7 @@ int	main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cerr << "Wrong Number Of arguments\n";
+		std::cerr << "Wrong number of arguments.\n";
 		return (1);
 	}
 

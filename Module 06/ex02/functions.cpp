@@ -5,7 +5,6 @@ Base	*generate(void)
 	srand(time(0));
 	int	i = rand() % 3;
 
-	// std::cout << i << std::endl;
 	switch (i)
 	{
 		case 0:
@@ -21,20 +20,27 @@ void identify(Base &p)
 {
 	try 
 	{
-		dynamic_cast<A &>(p);
+		(void) dynamic_cast<A &>(p);
 		std::cout << "A" << std::endl;
 	} 
 	catch(const std::exception& e)
 	{
 		try
 		{
-			dynamic_cast<B &>(p);
+			(void) dynamic_cast<B &>(p);
 			std::cout << "B" << std::endl;
 		}
 		catch(const std::exception& e)
 		{
-			dynamic_cast<C &>(p);
-			std::cout << "C" << std::endl;
+			try 
+			{
+				(void) dynamic_cast<C &>(p);
+				std::cout << "C" << std::endl;
+			}
+			catch(const std::exception& e)
+			{
+				std::cout << "I don't know you! Who are you? Why are you here?  !!!" << std::endl;
+			}
 		}
 	}
 };
@@ -42,23 +48,9 @@ void identify(Base &p)
 void identify(Base *p)
 {
 	if (!p)
+	{
+		std::cout << "Null!!! Your place isn't here!! return to your home." << std::endl;
 		return ;
-	try 
-	{
-		dynamic_cast<A &>(*p);
-		std::cout << "A" << std::endl;
-	} 
-	catch(const std::exception& e)
-	{
-		try
-		{
-			dynamic_cast<B &>(*p);
-			std::cout << "B" << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			dynamic_cast<C &>(*p);
-			std::cout << "C" << std::endl;
-		}
 	}
+	identify (*p);
 };

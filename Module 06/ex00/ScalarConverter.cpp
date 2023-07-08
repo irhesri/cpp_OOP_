@@ -22,12 +22,15 @@ ScalarConverter	&ScalarConverter::operator=(ScalarConverter const &s)
 
 void	ScalarConverter::convert(std::string str) const
 {
+	bool	b = 0;
 	char	*c;
 	long double d = strtod(&str[0], &c);
 	std::string f(c);
 
-	if (f == "f")
-		d = static_cast<float> (d);
+	if (str.length() == 1 && !isdigit(str[0]))
+		d = str[0];
+	else if (f == "f")
+		b = 1;
 	else if (f != "")
 	{
 		std::cerr << "error\n";
@@ -35,7 +38,7 @@ void	ScalarConverter::convert(std::string str) const
 	}
 	// ==================================================================
 	std::cout << "char: ";
-	if (d != static_cast<int>(d) || std::isnan(d) || std::isinf(d) || d > 127 || d < 0)
+	if (d != static_cast<int>(d) || std::isnan(d) || std::isinf(d) || d > 127 || d < -128)
 		std::cout << "impossible\n";
 	else if (std::isprint(d))
 		std::cout << "'" << static_cast<char> (d) << "'\n";  
@@ -53,12 +56,14 @@ void	ScalarConverter::convert(std::string str) const
 	std::cout << "float: ";
 	if ((d > __FLT_MAX__) || (d < -__FLT_MIN__))
 		std::cout << "impossible\n";
-	else
+	else if (!b)
 		std::cout << std::fixed << std::setprecision(1) << static_cast<float> (d) << "f" << std::endl;
-	
+	else
+		std::cout << std::fixed << std::setprecision(1) << d << "f" << std::endl;
+
 	std::cout << "double: ";
 	if ((d > __DBL_MAX__) || (d < -__DBL_MIN__))
 		std::cout << "impossible\n";
 	else
-		std::cout << std::fixed << std::setprecision(1) << static_cast<double> (d) << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << d << std::endl;
 };

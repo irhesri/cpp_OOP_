@@ -4,7 +4,7 @@
 # include <cstdint>
 # include <iostream>
 
-class Data;
+struct Data;
 
 class Serializer
 {	
