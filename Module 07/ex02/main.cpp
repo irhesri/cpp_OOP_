@@ -10,8 +10,8 @@ int main() {
 		std::cout << a.size() << std::endl;
 		std::cout << b.size() << std::endl << std::endl;
 		
-		std::cout << a[0] << std::endl;
-		std::cout << b[9] << std::endl << std::endl;
+		// std::cout << a[0] << std::endl;
+		// std::cout << b[9] << std::endl << std::endl;
 	
 		a = b;
 		a[1] = 9;
