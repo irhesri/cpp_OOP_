@@ -3,7 +3,7 @@
 
 # include <iostream>
 
-template <typename T> void	print(T a)
+template <typename T> void	my_print(T &a)
 {
 	std::cout << a << " ";
 }
